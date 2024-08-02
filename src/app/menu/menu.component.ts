@@ -1,23 +1,18 @@
 import { Component } from '@angular/core';
-import { PrimeIcons } from 'primeng/api';
+import { RouteItem, routes } from '../app-routing.module';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
+
+
 export class MenuComponent {
   position: "bottom" = "bottom";
-  items = [
-    {
-      label: 'Home',
-      icon: PrimeIcons.HOME,
-      path: ""
-    },
-    {
-      label: 'Contact',
-      icon: PrimeIcons.PHONE,
-      path: "contact"
-    }
-  ];
+  items: RouteItem[];
+
+  constructor() {
+    this.items = routes;
+  }
 }
