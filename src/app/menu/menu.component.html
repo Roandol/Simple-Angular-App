@@ -1,0 +1,7 @@
+<p-dock [model]="items" [position]="position">
+    <ng-template pTemplate="item" let-item>
+        <a [href]="item.path">
+            <i [class]="item.icon"></i>
+        </a>
+    </ng-template>
+</p-dock>
