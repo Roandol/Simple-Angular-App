@@ -12,6 +12,7 @@ import { Message } from 'primeng/api';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   messages: Message[];
+  loading = false;
 
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.fb.group({
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.loading = true;
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
 
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
                 severity: "error", detail: "Usuário ou Senha incorretos."
               }]
             }
+            this.loading = false;
           },
           error: error => {
             console.log(error);
@@ -46,7 +49,6 @@ export class LoginComponent implements OnInit {
       )
     } else {
       console.log("Formulário inválido");
-      
     }
   }
 }
