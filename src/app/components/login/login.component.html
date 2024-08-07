@@ -1,0 +1,19 @@
+<div class="box">
+    <p-messages [(value)]="messages" [enableService]="false" />
+    <form [formGroup]="loginForm" class="box-form" (ngSubmit)="onSubmit()">
+        <div class="box-fields">
+            <div class="p-field">
+                <label for="user">Usuário</label>
+                <input pInputText id="user" type="text" formControlName="username">
+            </div>
+            <div class="p-field">
+                <label for="password">Senha</label>
+                <p-password id="password" type="password" [feedback]="false" formControlName="password"></p-password>
+            </div>
+        </div>
+        <div class="submit">
+            <button pButton pRipple label="Entrar" class="p-button-success" type="submit" [disabled]="loginForm.invalid"></button>
+        </div>
+        <span>Não tem conta? <a href="signinup">Cadastre-se</a></span>
+    </form>
+</div>

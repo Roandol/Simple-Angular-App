@@ -3,21 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { DockModule } from 'primeng/dock';
 import { PrimeNGConfig } from 'primeng/api';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { LoginPage } from './pages/login/login.component';
+import { LoginModule } from './modules/form/login.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    LoginPage
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    DockModule
+    DashboardModule,
+    LoginModule
   ],
-  providers: [PrimeNGConfig],
+  providers: [PrimeNGConfig, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

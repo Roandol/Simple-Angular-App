@@ -1,25 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
+import { MenuItem } from 'primeng/api';
+import { LoginPage } from './pages/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomePage } from './pages/home/home.component';
 import { ContactPage } from './pages/contact/contact.component';
-import { MenuItem, PrimeIcons } from 'primeng/api';
-import { LoginPage } from './pages/login/login.component';
 
 export type RouteItem = MenuItem & Route;
 
-export const routes: RouteItem[] = [
-  {
-    path: "",
-    component: HomePage,
-    title: "Home",
-    icon: PrimeIcons.HOME
-  },
-  {
-    path: "contact",
-    component: ContactPage,
-    title: "Contact",
-    icon: PrimeIcons.PHONE
-  },
+export const routes: Route[] = [
   {
     path: "login",
     component: LoginPage,
@@ -29,6 +18,6 @@ export const routes: RouteItem[] = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule, routes]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
