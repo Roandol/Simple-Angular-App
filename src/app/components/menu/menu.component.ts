@@ -20,7 +20,8 @@ export class MenuComponent {
     this.items = [...childRoutes, {
       command: () => {
         authService.logout();
-        router.navigate(['/login'])
+        router.navigate(['/login']);
+        
       },
       icon: PrimeIcons.POWER_OFF
     }];
